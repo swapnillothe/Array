@@ -39,7 +39,7 @@ const reverseArray = function (givenArray){
   return swapeElementsInReverse(givenArray);
 }
 
-const giveEveryNthElement = function (nNumber,givenArray){
+const extractEveryNthElement = function (nNumber,givenArray){
   let requiredArray = [];
   for(let index = 0; index < givenArray.length; index+=nNumber){
     requiredArray[requiredArray.length] = +givenArray[index] 
@@ -47,9 +47,9 @@ const giveEveryNthElement = function (nNumber,givenArray){
   return requiredArray;
 }
 
-const giveEvery2ndElement = function (givenArray){
+const extractEverySecondElement = function (givenArray){
   let requiredArray = [];
-  return giveEveryNthElement(2,givenArray);
+  return extractEveryNthElement(2,givenArray);
 }
 
 const findGreatestNumber = function(givenArray){
@@ -74,11 +74,21 @@ const findLowestNumber = function(givenArray){
   }
   return lowestNumber;
 }
+
+const findAverageOfNumbers = function(givenArray){
+  let averageOfNumbers;
+  lastIndex = givenArray.length;
+  averageOfNumbers = (calculateSum(givenArray))/lastIndex;
+  return averageOfNumbers;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
 exports.reverseArray = reverseArray;
-exports.giveEveryNthElement = giveEveryNthElement;
-exports.giveEvery2ndElement = giveEvery2ndElement;
+exports.extractEveryNthElement = extractEveryNthElement;
+exports.extractEverySecondElement = extractEverySecondElement;
 exports.findGreatestNumber = findGreatestNumber;
 exports.findLowestNumber = findLowestNumber;
+exports.findAverageOfNumbers = findAverageOfNumbers;
+//exports.mapLengthOfString = mapLengthOfString;
