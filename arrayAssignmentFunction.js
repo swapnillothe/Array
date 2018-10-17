@@ -46,13 +46,27 @@ const giveEveryNthElement = function (nNumber,givenArray){
   }
   return requiredArray;
 }
+
 const giveEvery2ndElement = function (givenArray){
   let requiredArray = [];
   return giveEveryNthElement(2,givenArray);
 }
 
+const findGreatestNumber = function(givenArray){
+  if(!givenArray.length){return ""};
+  let greatestNumber = givenArray[0];
+  arrayLength = givenArray.length
+  for(let index=1; index<arrayLength; index++){
+    if(greatestNumber<givenArray[index]){
+      greatestNumber=givenArray[index];
+    }
+  }
+  return greatestNumber;
+}
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
 exports.reverseArray = reverseArray;
 exports.giveEveryNthElement = giveEveryNthElement;
+exports.giveEvery2ndElement = giveEvery2ndElement;
+exports.findGreatestNumber = findGreatestNumber;

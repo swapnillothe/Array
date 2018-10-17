@@ -1,7 +1,7 @@
 const assert = require("assert");
 const lib = require("./arrayAssignmentFunction.js");
 const {giveEveryNthElement,findEvenNumbers,findOddNumbers,calculateSum,reverseArray} = lib;
-const {giveEvery2ndElement} = lib; 
+const {giveEvery2ndElement,findGreatestNumber} = lib; 
 //---------for empty string([])------------//
 givenNumber = [];
 assert.deepEqual(findOddNumbers(givenNumber),[]);
@@ -37,4 +37,10 @@ assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 assert.deepEqual(giveEvery2ndElement([]),[]);
 assert.deepEqual(giveEvery2ndElement([1,2]),[1]);
 assert.deepEqual(giveEvery2ndElement([1,2,3]),[1,3]);
+
+//---------------test for greatest number in array------------//
+assert.deepEqual(findGreatestNumber([1,2]),2);
+assert.deepEqual(findGreatestNumber([3,4,1,2]),4);
+assert.deepEqual(findGreatestNumber([]),"")
+
 console.log("-------------Everything is fine-----------------");
