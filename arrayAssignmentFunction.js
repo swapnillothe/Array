@@ -63,6 +63,17 @@ const findGreatestNumber = function(givenArray){
   }
   return greatestNumber;
 }
+const findLowestNumber = function(givenArray){
+  if(!givenArray.length){return ""};
+  let lowestNumber = givenArray[0];
+  arrayLength = givenArray.length
+  for(let index=1; index<arrayLength; index++){
+    if(lowestNumber>givenArray[index]){
+      lowestNumber=givenArray[index];
+    }
+  }
+  return lowestNumber;
+}
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -70,3 +81,4 @@ exports.reverseArray = reverseArray;
 exports.giveEveryNthElement = giveEveryNthElement;
 exports.giveEvery2ndElement = giveEvery2ndElement;
 exports.findGreatestNumber = findGreatestNumber;
+exports.findLowestNumber = findLowestNumber;
