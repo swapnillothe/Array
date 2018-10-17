@@ -26,40 +26,33 @@ const calculateSum = function (givenArray){
   return sum;
 }
 
+const swapeElementsInReverse = function(givenArray){
+  swapingLength=(givenArray.length)/2;
+  for(let index=0; index<swapingLength; index++){
+    valueToSwap = givenArray[index];
+    givenArray[index]=givenArray[givenArray.length-1-index]; 
+    givenArray[givenArray.length-index-1]=valueToSwap;
+  }
+  return givenArray;
+}
 const reverseArray = function (givenArray){
-  let reversedArray = [];
-  reversedArray = givenArray.reverse();
-  return reversedArray;
+  return swapeElementsInReverse(givenArray);
 }
 
 const giveEveryNthElement = function (nNumber,givenArray){
   let requiredArray = [];
-
-
-const main = function(){
-  let argument = process.argv[2]; 
-  let givenArray = process.argv[3].split(",");
-  if ( argument == "odd"){
-    console.log(findOddNumbers(givenArray));
+  for(let index = 0; index < givenArray.length; index+=nNumber){
+    requiredArray[requiredArray.length] = +givenArray[index] 
   }
-  if ( argument == "even"){
-    console.log(findEvenNumbers(givenArray));
-  }
-  if ( argument == "sum"){
-    console.log(calculateSum(givenArray))
-  }
-  if ( argument == "reverse"){
-    console.log(reverseArray(givenArray))
-  }
-
-  return;
+  return requiredArray;
 }
-
-if(process.argv[2]){
-  main();
+const giveEvery2ndElement = function (givenArray){
+  let requiredArray = [];
+  return giveEveryNthElement(2,givenArray);
 }
 
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
 exports.reverseArray = reverseArray;
+exports.giveEveryNthElement = giveEveryNthElement;
