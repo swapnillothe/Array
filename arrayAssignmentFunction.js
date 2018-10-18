@@ -119,6 +119,17 @@ const countNumbersAboveThreshold = function(givenArray,threshold){
   return noOfNumbersAboveThre;
 }
 
+const countNumbersBelowThreshold = function(givenArray,threshold){
+  let noOfNumbersBelowThre = 0;
+  for(let index=0; index<givenArray.length; index++){
+    if(givenArray[index]<threshold){
+      noOfNumbersBelowThre++;
+    }
+  }
+  return noOfNumbersBelowThre;
+}
+
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -132,3 +143,4 @@ exports.mapLengthOfString = mapLengthOfElements;
 exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
+exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
