@@ -150,6 +150,26 @@ const findIndexOfNumber = function(givenArray,number){
   return indexOfGivenNumber;
 }
 
+const isAscending = function(givenArray){
+  let isAscending = true;
+  for(let index=0; index<(givenArray.length)-1; index++){
+    if(givenArray[index]>givenArray[index+1]){
+      isAscending = false;
+    }
+  }
+  return isAscending;
+}
+
+const isDescending = function(givenArray){
+  let isDescending = true;
+  for(let index=0; index<(givenArray.length)-1; index++){
+    if(givenArray[index]<givenArray[index+1]){
+      isDescending = false;
+    }
+  }
+  return isDescending;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -166,3 +186,5 @@ exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.reverseArray = reverseArray;
 exports.findIndexOfNumber = findIndexOfNumber;
+exports.isAscending = isAscending;
+exports.isDescending = isDescending;

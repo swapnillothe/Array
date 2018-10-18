@@ -96,4 +96,24 @@ assert.deepEqual(findIndexOfNumber([],2),-1);
 assert.deepEqual(findIndexOfNumber([1,2,3],3),2);
 assert.deepEqual(findIndexOfNumber([1,2,3],1),0);
 
+const {isAscending} = lib;
+//--------test for is ascending in array------------------------//
+assert.deepEqual(isAscending([1,2,3,4]),true);
+assert.deepEqual(isAscending([1,-2,3,4]),false);
+assert.deepEqual(isAscending([-1,-2,-3,-4]),false);
+assert.deepEqual(isAscending([-4,-3,-2,-1]),true);
+assert.deepEqual(isAscending([4,3,2,1]),false);
+assert.deepEqual(isAscending([1,12]),true);
+assert.deepEqual(isAscending([]),true);
+
+const {isDescending} = lib;
+//--------test for is descending in array------------------------//
+assert.deepEqual(isDescending([1,2,3,4]),false);
+assert.deepEqual(isDescending([4,3,2,1]),true);
+assert.deepEqual(isDescending([1,-2,3,4]),false);
+assert.deepEqual(isDescending([-1,-2,-3,-4]),true);
+assert.deepEqual(isDescending([-4,-3,-2,-1]),false);
+assert.deepEqual(isDescending([1,12]),false);
+assert.deepEqual(isDescending([]),true);
+
 console.log("-------------Everything is fine-----------------");
