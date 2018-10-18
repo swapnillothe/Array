@@ -70,6 +70,11 @@ assert.deepEqual(countEvenNumbers([1,-2,-3,4,5]),2);
 assert.deepEqual(countEvenNumbers([1]),0);
 assert.deepEqual(countEvenNumbers([]),0);
 
+const {countNumbersAboveThreshold} = lib;
+//------test for counting numbers above threshold in array----------//
+assert.deepEqual(countNumbersAboveThreshold([1,2,3,4,5],2),3);
+assert.deepEqual(countNumbersAboveThreshold([1,2,3,5],1),3);
+assert.deepEqual(countNumbersAboveThreshold([],2),0);
 
 
 console.log("-------------Everything is fine-----------------");
