@@ -35,7 +35,7 @@ const swapeElementsInReverse = function(givenArray){
   }
   return givenArray;
 }
-const reverseArray = function (givenArray){
+const reverseOriginalArray = function (givenArray){
   return swapeElementsInReverse(givenArray);
 }
 
@@ -129,11 +129,20 @@ const countNumbersBelowThreshold = function(givenArray,threshold){
   return noOfNumbersBelowThre;
 }
 
+const reverseArray = function(givenArray){
+  let lastIndex = (givenArray.length)-1;
+  let reversedArray = [];
+  for(let reversedIndex=lastIndex; reversedIndex>=0; reversedIndex--){
+    let index = givenArray.length-reversedIndex-1; 
+    reversedArray[reversedIndex] = givenArray[index];
+  }
+  return reversedArray;
+}
 
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
-exports.reverseArray = reverseArray;
+exports.reverseOriginalArray = reverseOriginalArray;
 exports.extractEveryNthElement = extractEveryNthElement;
 exports.extractEverySecondElement = extractEverySecondElement;
 exports.findGreatestNumber = findGreatestNumber;
@@ -144,3 +153,4 @@ exports.countOddNumbers = countOddNumbers;
 exports.countEvenNumbers = countEvenNumbers;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
+exports.reverseArray = reverseArray;

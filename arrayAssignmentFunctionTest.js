@@ -25,12 +25,12 @@ assert.deepEqual(calculateSum([1,2,3]),6);
 assert.deepEqual(calculateSum([1,3]),4);
 assert.deepEqual(calculateSum([1,2,3,4,5,6,7]),28);
 
-const {reverseArray} = lib;
+const {reverseOriginalArray} = lib;
 //--------test for reversing array------------------------//
-assert.deepEqual(reverseArray([1,2]),[2,1]);
-assert.deepEqual(reverseArray([]),[]);
-assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
-assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
+assert.deepEqual(reverseOriginalArray([1,2]),[2,1]);
+assert.deepEqual(reverseOriginalArray([]),[]);
+assert.deepEqual(reverseOriginalArray([1,2,3]),[3,2,1]);
+assert.deepEqual(reverseOriginalArray([1,2,3]),[3,2,1]);
 
 const {extractEverySecondElement} = lib;
 //--test for array of every second elements from given array --//
@@ -77,9 +77,16 @@ assert.deepEqual(countNumbersAboveThreshold([1,2,3,5],1),3);
 assert.deepEqual(countNumbersAboveThreshold([],2),0);
 
 const {countNumbersBelowThreshold} = lib;
-//------test for counting numbers above threshold in array----------//
-assert.deepEqual(countNumbersAboveThreshold([1,2,3,4,5],2),3);
-assert.deepEqual(countNumbersAboveThreshold([1,2,3,5],1),3);
-assert.deepEqual(countNumbersAboveThreshold([],2),0);
+//------test for counting numbers below threshold in array----------//
+assert.deepEqual(countNumbersBelowThreshold([1,2,3,4,5],2),1);
+assert.deepEqual(countNumbersBelowThreshold([1,2,3,5],3),2);
+assert.deepEqual(countNumbersBelowThreshold([],2),0);
+
+const {reverseArray} = lib;
+//--------test for reversing array------------------------//
+assert.deepEqual(reverseArray([1,2]),[2,1]);
+assert.deepEqual(reverseArray([]),[]);
+assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
+assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 
 console.log("-------------Everything is fine-----------------");
