@@ -64,7 +64,6 @@ const findGreatestNumber = function(givenArray){
   return greatestNumber;
 }
 const findLowestNumber = function(givenArray){
-  if(!givenArray.length){return ""};
   let lowestNumber = givenArray[0];
   arrayLength = givenArray.length
   for(let index=1; index<arrayLength; index++){
@@ -75,11 +74,39 @@ const findLowestNumber = function(givenArray){
   return lowestNumber;
 }
 
-const findAverageOfNumbers = function(givenArray){
+const calculateAverageOfNumbers = function(givenArray){
   let averageOfNumbers;
-  lastIndex = givenArray.length;
-  averageOfNumbers = (calculateSum(givenArray))/lastIndex;
+  let numberOfElements = givenArray.length;
+  averageOfNumbers = (calculateSum(givenArray))/numberOfElements;
   return averageOfNumbers;
+}
+
+const mapLengthOfElements = function(givenArray){
+  let mappedLengthArray = [];
+  for(let index=0; index<givenArray.length; index++){
+    mappedLengthArray[mappedLengthArray.length] = givenArray[index].length;
+  }
+  return mappedLengthArray;
+}
+
+const countOddNumbers = function(givenArray){
+  let numbersOfOddNumbers = 0;
+  for(let index=0; index<givenArray.length; index++){
+    if(givenArray[index]%2){
+      numbersOfOddNumbers++;
+    }
+  }
+  return numbersOfOddNumbers;
+}
+
+const countEvenNumbers = function(givenArray){
+  let numbersOfEvenNumbers = 0;
+   for(let index=0; index<givenArray.length; index++){
+    if(!(givenArray[index]%2)){
+      numbersOfEvenNumbers++;
+    }
+  }
+  return numbersOfEvenNumbers;
 }
 
 exports.findOddNumbers = findOddNumbers;
@@ -90,5 +117,7 @@ exports.extractEveryNthElement = extractEveryNthElement;
 exports.extractEverySecondElement = extractEverySecondElement;
 exports.findGreatestNumber = findGreatestNumber;
 exports.findLowestNumber = findLowestNumber;
-exports.findAverageOfNumbers = findAverageOfNumbers;
-//exports.mapLengthOfString = mapLengthOfString;
+exports.calculateAverageOfNumbers = calculateAverageOfNumbers;
+exports.mapLengthOfString = mapLengthOfElements;
+exports.countOddNumbers = countOddNumbers;
+exports.countEvenNumbers = countEvenNumbers;
