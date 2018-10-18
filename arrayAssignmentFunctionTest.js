@@ -89,4 +89,11 @@ assert.deepEqual(reverseArray([]),[]);
 assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 assert.deepEqual(reverseArray([1,2,3]),[3,2,1]);
 
+const {findIndexOfNumber} = lib;
+//--------test for reversing array------------------------//
+assert.deepEqual(findIndexOfNumber([1,2],1),0);
+assert.deepEqual(findIndexOfNumber([],2),-1);
+assert.deepEqual(findIndexOfNumber([1,2,3],3),2);
+assert.deepEqual(findIndexOfNumber([1,2,3],1),0);
+
 console.log("-------------Everything is fine-----------------");

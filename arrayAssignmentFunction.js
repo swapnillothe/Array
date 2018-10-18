@@ -139,6 +139,17 @@ const reverseArray = function(givenArray){
   return reversedArray;
 }
 
+const findIndexOfNumber = function(givenArray,number){
+  indexOfGivenNumber = -1;
+  for(let index=0; index<givenArray.length; index++){
+    if(givenArray[index]==number){
+      indexOfGivenNumber = index;
+      return indexOfGivenNumber;
+    }
+  }
+  return indexOfGivenNumber;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -154,3 +165,4 @@ exports.countEvenNumbers = countEvenNumbers;
 exports.countNumbersAboveThreshold = countNumbersAboveThreshold;
 exports.countNumbersBelowThreshold = countNumbersBelowThreshold;
 exports.reverseArray = reverseArray;
+exports.findIndexOfNumber = findIndexOfNumber;
