@@ -148,5 +148,14 @@ assert.deepEqual(findDifference([1,2,3,4],[2,3]),[1,4]);
 assert.deepEqual(findDifference([1,2,3,4],[2,3,5]),[1,4]);
 assert.deepEqual(findDifference([1,4],[2,3]),[1,4]);
 
+const {isSubsetOf} = lib;
+//--------test for checking: is first set subset of second----------//
+assert.deepEqual(isSubsetOf([1,2,3],[3]),true);
+assert.deepEqual(isSubsetOf([1,4,3,6],[3,1]),true);
+assert.deepEqual(isSubsetOf([1,-4,-3,6],[3,1]),false);
+assert.deepEqual(isSubsetOf([1,2],[3]),false);
+assert.deepEqual(isSubsetOf([1,2,3],[]),true);
+
+
 
 console.log("-------------Everything is fine-----------------");

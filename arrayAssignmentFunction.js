@@ -214,6 +214,16 @@ const findDifference = function(array1,array2){ //function name to change
   return differentElementsArray;
 }
 
+const isSubsetOf = function(array1,array2){ //arguments&function name to change
+  let isSubsetOf = true;
+  for(let index=0; index<array2.length; index++){
+    if(!(array1.includes(array2[index]))){
+      isSubsetOf = false;
+    }
+  }
+  return isSubsetOf;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -237,3 +247,4 @@ exports.findUnique = findUnique;
 exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
 exports.findDifference = findDifference;
+exports.isSubsetOf = isSubsetOf;
