@@ -156,10 +156,21 @@ assert.deepEqual(isSubsetOf([1,-4,-3,6],[3,1]),false);
 assert.deepEqual(isSubsetOf([1,2],[3]),false);
 assert.deepEqual(isSubsetOf([1,2,3],[]),true);
 
-const {zip} = lib;
-assert.deepEqual(zip([1,2,3],[0,4,5]),[[1,0],[2,4],[3,5]]);
-assert.deepEqual(zip([1,2],[0]),[[1,0]]);
-assert.deepEqual(zip([1],[0,2]),[[1,0]]);
-assert.deepEqual(zip(["a"],["b","c"]),[["a","b"]]);
+const {zipArrays} = lib;
+//-------test for zipping two arrays in new array is added----------//
+assert.deepEqual(zipArrays([1,2,3],[0,4,5]),[[1,0],[2,4],[3,5]]);
+assert.deepEqual(zipArrays([1,2],[0]),[[1,0]]);
+assert.deepEqual(zipArrays([1],[0,2]),[[1,0]]);
+assert.deepEqual(zipArrays(["a"],["b","c"]),[["a","b"]]);
+
+const {rotateArray} = lib; 
+//-------test for creating new array of rotated array---------//
+assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2]);
+assert.deepEqual(rotateArray([1,2,3,4,5],5),[1,2,3,4,5]);
+assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
+assert.deepEqual(rotateArray([1,2,3,4,5],6),[2,3,4,5,1]);
+assert.deepEqual(rotateArray([1,2,3,4,5],-2),[4,5,1,2,3]);
+assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
+
 
 console.log("-------------Everything is fine-----------------");

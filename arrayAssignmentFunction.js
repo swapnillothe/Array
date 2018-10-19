@@ -224,13 +224,24 @@ const isSubsetOf = function(array1,array2){ //arguments&function name to change
   return isSubsetOf;
 }
 
-const zip = function(array1,array2){
+const zipArrays = function(array1,array2){
   zipLength = findLowestNumber([array1.length,array2.length]);
   let zippedArray = new Array(zipLength);
   for(let index=0; index<zipLength; index++){
     zippedArray[index] = [array1[index],array2[index]];    
   }
   return zippedArray;
+}
+
+const rotateArray = function(givenArray,rotationFrequency){
+  let rotatedArray = [];
+  if(rotationFrequency<0)
+    rotationFrequency = givenArray.length + rotationFrequency; 
+  for(let index=0; index<givenArray.length; index++){
+    indexOfGivenArray = (index+rotationFrequency)%(givenArray.length);
+    rotatedArray[index] = givenArray[indexOfGivenArray]; 
+  }
+  return rotatedArray;
 }
 
 exports.findOddNumbers = findOddNumbers;
@@ -257,4 +268,5 @@ exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
 exports.findDifference = findDifference;
 exports.isSubsetOf = isSubsetOf;
-exports.zip = zip;
+exports.zipArrays = zipArrays;
+exports.rotateArray = rotateArray;
