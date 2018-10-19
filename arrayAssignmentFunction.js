@@ -204,6 +204,15 @@ const findIntersection = function(array1,array2){ //function name to change
   return intersectedElementsArray;
 }
 
+const findDifference = function(array1,array2){ //function name to change
+  let differentElementsArray = [];
+  for(let index=0; index<array1.length; index++){
+    if(!(array2.includes(array1[index]))){
+      differentElementsArray[differentElementsArray.length]=array1[index];//too long bad variable name 
+    }
+  }
+  return differentElementsArray;
+}
 
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
@@ -227,3 +236,4 @@ exports.extractDigitsFromNumber = extractDigitsFromNumber;
 exports.findUnique = findUnique;
 exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
+exports.findDifference = findDifference;

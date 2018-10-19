@@ -137,9 +137,16 @@ assert.deepEqual(findUnion([1,2,3],[2,3,5]),[1,2,3,5]);
 assert.deepEqual(findUnion([],[1,2,3]),[1,2,3]);
 
 const {findIntersection} = lib;
+//---test for creating new array containing intersection of given two array---//
 assert.deepEqual(findIntersection([1,2,3,4],[2,3]),[2,3]);
 assert.deepEqual(findIntersection([1,2,3,4],[2,3,5]),[2,3]);
 assert.deepEqual(findIntersection([1,4],[2,3]),[]);
+
+const {findDifference} = lib;
+//---test for creating new array of elements of first array which are not in second array--//
+assert.deepEqual(findDifference([1,2,3,4],[2,3]),[1,4]);
+assert.deepEqual(findDifference([1,2,3,4],[2,3,5]),[1,4]);
+assert.deepEqual(findDifference([1,4],[2,3]),[1,4]);
 
 
 console.log("-------------Everything is fine-----------------");
