@@ -107,7 +107,7 @@ assert.deepEqual(isAscending([1,12]),true);
 assert.deepEqual(isAscending([]),true);
 
 const {isDescending} = lib;
-//--------test for is descending in array------------------------//
+//--------test for is descending in array-----------------------//
 assert.deepEqual(isDescending([1,2,3,4]),false);
 assert.deepEqual(isDescending([4,3,2,1]),true);
 assert.deepEqual(isDescending([1,-2,3,4]),false);
@@ -115,5 +115,13 @@ assert.deepEqual(isDescending([-1,-2,-3,-4]),true);
 assert.deepEqual(isDescending([-4,-3,-2,-1]),false);
 assert.deepEqual(isDescending([1,12]),false);
 assert.deepEqual(isDescending([]),true);
+
+const {extractDigitsFromNumber} = lib;
+//--------test for extracting digits from given number----------//
+assert.deepEqual(extractDigitsFromNumber(12345),[1,2,3,4,5]);
+//assert.deepEqual(extractDigitsFromNumber()) Edge case;
+assert.deepEqual(extractDigitsFromNumber(78),[7,8]);
+assert.deepEqual(extractDigitsFromNumber(0),[0]);
+
 
 console.log("-------------Everything is fine-----------------");

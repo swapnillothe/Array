@@ -170,6 +170,16 @@ const isDescending = function(givenArray){
   return isDescending;
 }
 
+const extractDigitsFromNumber = function(givenNumber){
+  let requiredArray = []; // have to change the variable name
+  stringOfGivenNumber = ""+givenNumber; 
+  noOfDigits = (""+givenNumber).length;
+  for(let index=0; index<noOfDigits; index++){
+    requiredArray[requiredArray.length] = stringOfGivenNumber[index];
+  }
+  return requiredArray;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -188,3 +198,4 @@ exports.reverseArray = reverseArray;
 exports.findIndexOfNumber = findIndexOfNumber;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
+exports.extractDigitsFromNumber = extractDigitsFromNumber;
