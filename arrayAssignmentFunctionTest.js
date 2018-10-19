@@ -123,5 +123,15 @@ assert.deepEqual(extractDigitsFromNumber(12345),[1,2,3,4,5]);
 assert.deepEqual(extractDigitsFromNumber(78),[7,8]);
 assert.deepEqual(extractDigitsFromNumber(0),[0]);
 
+const {findUnique} = lib;
+//--------test for extracting digits from given number----------//
+assert.deepEqual(findUnique([1,1,2,3,3]),[1,2,3]);
+assert.deepEqual(findUnique([1,2,3,3]),[1,2,3]);
+assert.deepEqual(findUnique([1,2,3,3]),[1,2,3]);
+assert.deepEqual(findUnique([1,2,3]),[1,2,3]);
+assert.deepEqual(findUnique([3]),[3]);
+assert.deepEqual(findUnique([]),[]);
+
+
 
 console.log("-------------Everything is fine-----------------");

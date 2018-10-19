@@ -180,6 +180,16 @@ const extractDigitsFromNumber = function(givenNumber){
   return requiredArray;
 }
 
+const findUnique = function(givenArray){ //function name to change
+  let uniqueElementsArray = [];
+  for(let index=0; index<givenArray.length; index++){
+    if(!(uniqueElementsArray.includes(givenArray[index]))){
+      uniqueElementsArray[uniqueElementsArray.length]=givenArray[index];//too long 
+    }
+  }
+  return uniqueElementsArray;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -199,3 +209,4 @@ exports.findIndexOfNumber = findIndexOfNumber;
 exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractDigitsFromNumber = extractDigitsFromNumber;
+exports.findUnique = findUnique;
