@@ -125,9 +125,6 @@ assert.deepEqual(extractDigitsFromNumber(0),[0]);
 
 const {findUnique} = lib;
 //--------test for extracting digits from given number----------//
-assert.deepEqual(findUnique([1,1,2,3,3]),[1,2,3]);
-assert.deepEqual(findUnique([1,2,3,3]),[1,2,3]);
-assert.deepEqual(findUnique([1,2,3,3]),[1,2,3]);
 assert.deepEqual(findUnique([1,2,3]),[1,2,3]);
 assert.deepEqual(findUnique([3]),[3]);
 assert.deepEqual(findUnique([]),[]);
@@ -139,7 +136,10 @@ assert.deepEqual(findUnion([1,2,3],[2,3]),[1,2,3]);
 assert.deepEqual(findUnion([1,2,3],[2,3,5]),[1,2,3,5]);
 assert.deepEqual(findUnion([],[1,2,3]),[1,2,3]);
 
-
+const {findIntersection} = lib;
+assert.deepEqual(findIntersection([1,2,3,4],[2,3]),[2,3]);
+assert.deepEqual(findIntersection([1,2,3,4],[2,3,5]),[2,3]);
+assert.deepEqual(findIntersection([1,4],[2,3]),[]);
 
 
 console.log("-------------Everything is fine-----------------");

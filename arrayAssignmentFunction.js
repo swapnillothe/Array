@@ -194,6 +194,16 @@ const findUnion = function(array1,array2){
   let unionArray = array1.concat(array2);
   return findUnique(unionArray);
 }
+const findIntersection = function(array1,array2){ //function name to change
+  let intersectedElementsArray = [];
+  for(let index=0; index<array1.length; index++){
+    if(array2.includes(array1[index])){
+      intersectedElementsArray[intersectedElementsArray.length]=array1[index];//too long 
+    }
+  }
+  return intersectedElementsArray;
+}
+
 
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
@@ -216,3 +226,4 @@ exports.isDescending = isDescending;
 exports.extractDigitsFromNumber = extractDigitsFromNumber;
 exports.findUnique = findUnique;
 exports.findUnion = findUnion;
+exports.findIntersection = findIntersection;
