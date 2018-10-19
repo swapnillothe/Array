@@ -244,6 +244,21 @@ const rotateArray = function(givenArray,rotationFrequency){
   return rotatedArray;
 }
 
+const isGreater = function(num1,num2){
+  return (num1-num2)>0;
+}
+
+const partitionArrays = function(givenArray,pivot){
+  let container = {true:[],false:[]};
+  let partitionedArray = [];
+  for(number of givenArray){
+    isGreater(number,pivot);
+    container[isGreater]=number;
+  }
+  partitionedArray = [container.true,container.false];
+  return partitionedArray;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -270,3 +285,4 @@ exports.findDifference = findDifference;
 exports.isSubsetOf = isSubsetOf;
 exports.zipArrays = zipArrays;
 exports.rotateArray = rotateArray;
+exports.partitionArrays = partitionArrays;
