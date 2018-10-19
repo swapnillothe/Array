@@ -156,6 +156,10 @@ assert.deepEqual(isSubsetOf([1,-4,-3,6],[3,1]),false);
 assert.deepEqual(isSubsetOf([1,2],[3]),false);
 assert.deepEqual(isSubsetOf([1,2,3],[]),true);
 
-
+const {zip} = lib;
+assert.deepEqual(zip([1,2,3],[0,4,5]),[[1,0],[2,4],[3,5]]);
+assert.deepEqual(zip([1,2],[0]),[[1,0]]);
+assert.deepEqual(zip([1],[0,2]),[[1,0]]);
+assert.deepEqual(zip(["a"],["b","c"]),[["a","b"]]);
 
 console.log("-------------Everything is fine-----------------");

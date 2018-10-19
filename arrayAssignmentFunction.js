@@ -224,6 +224,15 @@ const isSubsetOf = function(array1,array2){ //arguments&function name to change
   return isSubsetOf;
 }
 
+const zip = function(array1,array2){
+  zipLength = findLowestNumber([array1.length,array2.length]);
+  let zippedArray = new Array(zipLength);
+  for(let index=0; index<zipLength; index++){
+    zippedArray[index] = [array1[index],array2[index]];    
+  }
+  return zippedArray;
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -248,3 +257,4 @@ exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
 exports.findDifference = findDifference;
 exports.isSubsetOf = isSubsetOf;
+exports.zip = zip;
