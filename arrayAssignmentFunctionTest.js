@@ -116,7 +116,7 @@ assert.deepEqual(isDescending([-4,-3,-2,-1]),false);
 assert.deepEqual(isDescending([1,12]),false);
 assert.deepEqual(isDescending([]),true);
 
-const {extractDigitsFromNumber} = lib;
+const {extractDigitsFromNumber} = lib; // to add a test of negative numbers
 //--------test for extracting digits from given number----------//
 assert.deepEqual(extractDigitsFromNumber(12345),[1,2,3,4,5]);
 //assert.deepEqual(extractDigitsFromNumber()) Edge case;
@@ -131,6 +131,14 @@ assert.deepEqual(findUnique([1,2,3,3]),[1,2,3]);
 assert.deepEqual(findUnique([1,2,3]),[1,2,3]);
 assert.deepEqual(findUnique([3]),[3]);
 assert.deepEqual(findUnique([]),[]);
+
+const {findUnion} = lib;
+//---test for creating new array containing union of given two array---//
+assert.deepEqual(findUnion([1,2,3],[4,5,6]),[1,2,3,4,5,6]);
+assert.deepEqual(findUnion([1,2,3],[2,3]),[1,2,3]);
+assert.deepEqual(findUnion([1,2,3],[2,3,5]),[1,2,3,5]);
+assert.deepEqual(findUnion([],[1,2,3]),[1,2,3]);
+
 
 
 

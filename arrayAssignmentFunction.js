@@ -190,6 +190,11 @@ const findUnique = function(givenArray){ //function name to change
   return uniqueElementsArray;
 }
 
+const findUnion = function(array1,array2){
+  let unionArray = array1.concat(array2);
+  return findUnique(unionArray);
+}
+
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
@@ -210,3 +215,4 @@ exports.isAscending = isAscending;
 exports.isDescending = isDescending;
 exports.extractDigitsFromNumber = extractDigitsFromNumber;
 exports.findUnique = findUnique;
+exports.findUnion = findUnion;
