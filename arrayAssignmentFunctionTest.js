@@ -172,10 +172,10 @@ assert.deepEqual(rotateArray([1,2,3,4,5],6),[2,3,4,5,1]);
 assert.deepEqual(rotateArray([1,2,3,4,5],-2),[4,5,1,2,3]);
 assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
 
-const {partitionArray} = lib;
+const {partitionArrays} = lib;
 //------test for partition the arrays in two arrays---------//
-assert.deepEqual(partitionArray([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
-assert.deepEqual(partitionArray([],4)[[],[]]);
+assert.deepEqual(partitionArrays([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
+assert.deepEqual(partitionArrays([],4)[[],[]]);
 
 
 console.log("-------------Everything is fine-----------------");

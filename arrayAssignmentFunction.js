@@ -110,13 +110,7 @@ const countEvenNumbers = function(givenArray){
 }
 
 const countNumbersAboveThreshold = function(givenArray,threshold){
-  let noOfNumbersAboveThre = 0;
-  for(let index=0; index<givenArray.length; index++){
-    if(givenArray[index]>threshold){
-      noOfNumbersAboveThre++;
-    }
-  }
-  return noOfNumbersAboveThre;
+  return givenArray.filter(function(element){return element>threshold}).length;
 }
 
 const countNumbersBelowThreshold = function(givenArray,threshold){
@@ -252,8 +246,8 @@ const partitionArrays = function(givenArray,pivot){
   let container = {true:[],false:[]};
   let partitionedArray = [];
   for(number of givenArray){
-    isGreater(number,pivot);
-    container[isGreater]=number;
+    lastIndex = container[!(isGreater(number,pivot))].length
+    container[!(isGreater(number,pivot))][lastIndex]=number;
   }
   partitionedArray = [container.true,container.false];
   return partitionedArray;
