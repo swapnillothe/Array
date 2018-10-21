@@ -1,29 +1,24 @@
+const isOdd = function(number){
+  return Math.abs(number%2)==1;
+}
+
+const isEven = function(number){
+  return Math.abs(number%2)==0;
+}
+
+const add = function(num1,num2){
+  return num1+num2;
+}
 const findOddNumbers = function (givenArray){
-  let arrayOfOddNumbers = [];
-  for(number of givenArray){
-    if(+number%2){
-      arrayOfOddNumbers[arrayOfOddNumbers.length] = +number;
-    }
-  }
-  return arrayOfOddNumbers
+  return givenArray.filter(isOdd);
 }
 
 const findEvenNumbers = function (givenArray){
-  let arrayOfEvenNumbers = [];
-  for(number of givenArray){
-    if(+number%2==0){
-      arrayOfEvenNumbers[arrayOfEvenNumbers.length] = +number;
-    }
-  }
-  return arrayOfEvenNumbers
+  return givenArray.filter(isEven);
 }
 
 const calculateSum = function (givenArray){
-  let sum = 0;
-  for(number of givenArray){
-    sum = sum + (+number);
-  }
-  return sum;
+  return givenArray.reduce(add);
 }
 
 const swapeElementsInReverse = function(givenArray){
@@ -35,92 +30,84 @@ const swapeElementsInReverse = function(givenArray){
   }
   return givenArray;
 }
+
 const reverseOriginalArray = function (givenArray){
   return swapeElementsInReverse(givenArray);
 }
 
-const extractEveryNthElement = function (nNumber,givenArray){
-  let requiredArray = [];
-  for(let index = 0; index < givenArray.length; index+=nNumber){
-    requiredArray[requiredArray.length] = +givenArray[index] 
-  }
-  return requiredArray;
+const isIndexEven = function(element,index){
+  return isEven(index);
 }
 
 const extractEverySecondElement = function (givenArray){
-  let requiredArray = [];
-  return extractEveryNthElement(2,givenArray);
+  return givenArray.filter(isIndexEven); 
 }
 
-const findGreatestNumber = function(givenArray){
-  if(!givenArray.length){return ""};
-  let greatestNumber = givenArray[0];
-  arrayLength = givenArray.length
-  for(let index=1; index<arrayLength; index++){
-    if(greatestNumber<givenArray[index]){
-      greatestNumber=givenArray[index];
-    }
+const findGreaterNumber = function(num1,num2){
+  if(num1>num2){
+    return num1;
   }
-  return greatestNumber;
+  return num2;
 }
-const findLowestNumber = function(givenArray){
-  let lowestNumber = givenArray[0];
-  arrayLength = givenArray.length
-  for(let index=1; index<arrayLength; index++){
-    if(lowestNumber>givenArray[index]){
-      lowestNumber=givenArray[index];
-    }
+
+const findLowerNumber = function(num1,num2){
+  if(num1>num2){
+    return num2;
   }
-  return lowestNumber;
+  return num1;
+}
+
+
+const findGreatestNumber = function(givenArray){
+  return givenArray.reduce(findGreaterNumber);
+}
+
+const findLowestNumber = function(givenArray){
+  return givenArray.reduce(findLowerNumber);
 }
 
 const calculateAverageOfNumbers = function(givenArray){
-  let averageOfNumbers;
-  let numberOfElements = givenArray.length;
-  averageOfNumbers = (calculateSum(givenArray))/numberOfElements;
-  return averageOfNumbers;
+  return (calculateSum(givenArray))/givenArray.length;
+}
+
+const mapLengthOfText = function(text){
+  return text.length;
 }
 
 const mapLengthOfElements = function(givenArray){
-  let mappedLengthArray = [];
-  for(let index=0; index<givenArray.length; index++){
-    mappedLengthArray[mappedLengthArray.length] = givenArray[index].length;
-  }
-  return mappedLengthArray;
+  return givenArray.map(mapLengthOfText);
 }
 
 const countOddNumbers = function(givenArray){
-  let numbersOfOddNumbers = 0;
-  for(let index=0; index<givenArray.length; index++){
-    if(givenArray[index]%2){
-      numbersOfOddNumbers++;
-    }
-  }
-  return numbersOfOddNumbers;
+  return findOddNumbers(givenArray).length;
 }
 
 const countEvenNumbers = function(givenArray){
-  let numbersOfEvenNumbers = 0;
-   for(let index=0; index<givenArray.length; index++){
-    if(!(givenArray[index]%2)){
-      numbersOfEvenNumbers++;
-    }
-  }
-  return numbersOfEvenNumbers;
+  return findEvenNumbers(givenArray).length;
 }
 
+const isAbove = function(threshold){
+  const result = function(element){
+    return isGreater(element,threshold)
+  }
+  return result; 
+}
+ 
+const isBelow = function(threshold){
+  const result = function(element){
+    return isLower(element,threshold)
+  }
+  return result; 
+}
+ 
 const countNumbersAboveThreshold = function(givenArray,threshold){
-  return givenArray.filter(function(element){return element>threshold}).length;
+  const belowBoundary = isAbove(threshold); 
+  return givenArray.filter(belowBoundary).length;
 }
 
 const countNumbersBelowThreshold = function(givenArray,threshold){
-  let noOfNumbersBelowThre = 0;
-  for(let index=0; index<givenArray.length; index++){
-    if(givenArray[index]<threshold){
-      noOfNumbersBelowThre++;
-    }
-  }
-  return noOfNumbersBelowThre;
+  const upperBoundary = isBelow(threshold);
+  return givenArray.filter(upperBoundary).length; 
 }
 
 const reverseArray = function(givenArray){
@@ -242,6 +229,11 @@ const isGreater = function(num1,num2){
   return (num1-num2)>0;
 }
 
+const isLower = function(num1,num2){
+  return (num1-num2)<0;
+}
+
+
 const partitionArrays = function(givenArray,pivot){
   let container = {true:[],false:[]};
   let partitionedArray = [];
@@ -257,7 +249,6 @@ exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
 exports.reverseOriginalArray = reverseOriginalArray;
-exports.extractEveryNthElement = extractEveryNthElement;
 exports.extractEverySecondElement = extractEverySecondElement;
 exports.findGreatestNumber = findGreatestNumber;
 exports.findLowestNumber = findLowestNumber;

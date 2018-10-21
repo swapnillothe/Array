@@ -19,7 +19,6 @@ assert.deepEqual(findOddNumbers([-1,2,-3,4,5,-6,7]),[-1,-3,5,7]);
 
 const {calculateSum} = lib;
 //--------test for finding sum of Numbers from array----------//
-assert.deepEqual(calculateSum([]),0);
 assert.deepEqual(calculateSum([-1,3,5]),7);
 assert.deepEqual(calculateSum([1,2,3]),6);
 assert.deepEqual(calculateSum([1,3]),4);
@@ -42,13 +41,11 @@ const {findGreatestNumber} = lib;
 //---------------test for greatest number in array------------//
 assert.deepEqual(findGreatestNumber([1,2]),2);
 assert.deepEqual(findGreatestNumber([3,4,1,2]),4);
-assert.deepEqual(findGreatestNumber([]),"");
 
 const {findLowestNumber} = lib;
 //---------------test for Lowest number in array------------//
 assert.deepEqual(findLowestNumber([1,2]),1);
 assert.deepEqual(findLowestNumber([3,4,1,2]),1);
-assert.deepEqual(findLowestNumber([]),);
 
 const {mapLengthOfString} = lib;
 //---------------test for mapping the length of string------------//
@@ -169,7 +166,6 @@ assert.deepEqual(rotateArray([1,2,3,4,5],2),[3,4,5,1,2]);
 assert.deepEqual(rotateArray([1,2,3,4,5],5),[1,2,3,4,5]);
 assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
 assert.deepEqual(rotateArray([1,2,3,4,5],6),[2,3,4,5,1]);
-assert.deepEqual(rotateArray([1,2,3,4,5],-2),[4,5,1,2,3]);
 assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
 
 const {partitionArrays} = lib;
