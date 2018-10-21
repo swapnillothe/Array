@@ -124,7 +124,6 @@ const {findUnique} = lib;
 //--------test for extracting digits from given number----------//
 assert.deepEqual(findUnique([1,2,3]),[1,2,3]);
 assert.deepEqual(findUnique([3]),[3]);
-assert.deepEqual(findUnique([]),[]);
 
 const {findUnion} = lib;
 //---test for creating new array containing union of given two array---//

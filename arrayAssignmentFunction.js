@@ -159,16 +159,16 @@ const extractDigitsFromNumber = function(givenNumber){
   return requiredArray;
 }
 
-
-
-const findUnique = function(givenArray){ //function name to change
-  let uniqueElementsArray = [];
-  for(let index=0; index<givenArray.length; index++){
-    if(!(uniqueElementsArray.includes(givenArray[index]))){
-      uniqueElementsArray[uniqueElementsArray.length]=givenArray[index];//too long
-    }
+const isPresent = function(array,element){
+  if((array).includes(element)){
+    return array;
   }
-  return uniqueElementsArray;
+  (array).push(element);
+  return array;
+}
+
+const findUnique = function(givenArray){ 
+  return givenArray.reduce(isPresent,[]);
 }
 
 const findUnion = function(array1,array2){
@@ -176,7 +176,7 @@ const findUnion = function(array1,array2){
   return findUnique(unionArray);
 }
 
-const findIntersection = function(array1,array2){ //function name to change
+const findIntersection = function(array1,array2){ 
   let intersectedElementsArray = [];
   for(let index=0; index<array1.length; index++){
     if(array2.includes(array1[index])){
