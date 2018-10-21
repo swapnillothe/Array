@@ -161,11 +161,13 @@ const extractDigitsFromNumber = function(givenNumber){
   return requiredArray;
 }
 
+
+
 const findUnique = function(givenArray){ //function name to change
   let uniqueElementsArray = [];
   for(let index=0; index<givenArray.length; index++){
     if(!(uniqueElementsArray.includes(givenArray[index]))){
-      uniqueElementsArray[uniqueElementsArray.length]=givenArray[index];//too long 
+      uniqueElementsArray[uniqueElementsArray.length]=givenArray[index];//too long
     }
   }
   return uniqueElementsArray;
@@ -216,8 +218,6 @@ const zipArrays = function(array1,array2){
 
 const rotateArray = function(givenArray,rotationFrequency){
   let rotatedArray = [];
-  if(rotationFrequency<0)
-    rotationFrequency = givenArray.length + rotationFrequency; 
   for(let index=0; index<givenArray.length; index++){
     indexOfGivenArray = (index+rotationFrequency)%(givenArray.length);
     rotatedArray[index] = givenArray[indexOfGivenArray]; 
@@ -230,19 +230,26 @@ const isGreater = function(num1,num2){
 }
 
 const isLower = function(num1,num2){
-  return (num1-num2)<0;
+  return num1 < num2;
 }
 
+const partition = function(object,element,pivot){
+  let whichPart = object[isLower(pivot,element)];
+  let length = whichPart.length;
+  whichPart[length] = element;
+  return object;
+}
+
+const partitionGenerater = function (pivot){
+  return function (object,element){
+    return partition(object,element,pivot);
+  }
+}
 
 const partitionArrays = function(givenArray,pivot){
-  let container = {true:[],false:[]};
-  let partitionedArray = [];
-  for(number of givenArray){
-    lastIndex = container[!(isGreater(number,pivot))].length
-    container[!(isGreater(number,pivot))][lastIndex]=number;
-  }
-  partitionedArray = [container.true,container.false];
-  return partitionedArray;
+  const partitate = partitionGenerater(pivot);
+  let result = givenArray.reduce(partitate,{true:[],false:[]});
+  return [result.false,result.true]
 }
 
 exports.findOddNumbers = findOddNumbers;
