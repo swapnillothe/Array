@@ -87,17 +87,15 @@ const countEvenNumbers = function(givenArray){
 }
 
 const isAbove = function(threshold){
-  const result = function(element){
+  return function(element){
     return isGreater(element,threshold)
   }
-  return result; 
 }
- 
+
 const isBelow = function(threshold){
-  const result = function(element){
+  return function(element){
     return isLower(element,threshold)
   }
-  return result; 
 }
  
 const countNumbersAboveThreshold = function(givenArray,threshold){
@@ -177,6 +175,7 @@ const findUnion = function(array1,array2){
   let unionArray = array1.concat(array2);
   return findUnique(unionArray);
 }
+
 const findIntersection = function(array1,array2){ //function name to change
   let intersectedElementsArray = [];
   for(let index=0; index<array1.length; index++){
@@ -197,14 +196,14 @@ const findDifference = function(array1,array2){ //function name to change
   return differentElementsArray;
 }
 
-const isSubsetOf = function(array1,array2){ //arguments&function name to change
-  let isSubsetOf = true;
+const isSubset= function(array1,array2){ 
+  let isSubset= true;
   for(let index=0; index<array2.length; index++){
     if(!(array1.includes(array2[index]))){
-      isSubsetOf = false;
+      isSubset= false;
     }
   }
-  return isSubsetOf;
+  return isSubset;
 }
 
 const zipArrays = function(array1,array2){
@@ -274,7 +273,7 @@ exports.findUnique = findUnique;
 exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
 exports.findDifference = findDifference;
-exports.isSubsetOf = isSubsetOf;
+exports.isSubset= isSubset;
 exports.zipArrays = zipArrays;
 exports.rotateArray = rotateArray;
 exports.partitionArrays = partitionArrays;
