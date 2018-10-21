@@ -1,3 +1,9 @@
+const createCompliment = function(func){
+  return function(argv){
+    return !func(argv);
+  }
+}
+
 const isOdd = function(number){
   return Math.abs(number%2)==1;
 }
@@ -160,7 +166,11 @@ const extractDigitsFromNumber = function(givenNumber){
 }
 
 const isPresent = function(array,element){
-  if((array).includes(element)){
+  return (array).includes(element);
+}
+
+const fillOnlyUnique = function(array,element){
+  if(isPresent(array,element)){
     return array;
   }
   (array).push(element);
@@ -168,7 +178,7 @@ const isPresent = function(array,element){
 }
 
 const findUnique = function(givenArray){ 
-  return givenArray.reduce(isPresent,[]);
+  return givenArray.reduce(fillOnlyUnique,[]);
 }
 
 const findUnion = function(array1,array2){
@@ -176,17 +186,26 @@ const findUnion = function(array1,array2){
   return findUnique(unionArray);
 }
 
-const findIntersection = function(array1,array2){ 
-  let intersectedElementsArray = [];
-  for(let index=0; index<array1.length; index++){
-    if(array2.includes(array1[index])){
-      intersectedElementsArray[intersectedElementsArray.length]=array1[index];//too long 
-    }
+const intersectionMainFunc = function(intialValue,element,array2,array1){
+  if((array2).includes(element)&&(array1).includes(element)){
+    (intialValue).push(element);
+    return intialValue;
   }
-  return intersectedElementsArray;
+  return intialValue;
 }
 
-const findDifference = function(array1,array2){ //function name to change
+const intersectionFuncCreater = function(array2,array1){
+  return function(intValue,element){
+    return intersectionMainFunc(intValue,element,array2,array1);
+  }
+}
+
+const findIntersection = function(array1,array2){ 
+  const fillOnlyIntersected = intersectionFuncCreater(array2,array1);
+  return array1.reduce(fillOnlyIntersected,[]);
+}
+
+const findDifference = function(array1,array2){ 
   let differentElementsArray = [];
   for(let index=0; index<array1.length; index++){
     if(!(array2.includes(array1[index]))){

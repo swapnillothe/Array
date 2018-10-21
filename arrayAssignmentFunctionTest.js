@@ -173,4 +173,4 @@ assert.deepEqual(partitionArrays([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
 assert.deepEqual(partitionArrays([],4)[[],[]]);
 
 
-console.log("-------------Everything is fine-----------------");
+console.log("-------------All test are passed-----------------");
