@@ -221,13 +221,16 @@ const zipArrays = function(array1,array2){
   return zippedArray;
 }
 
-const rotateArray = function(givenArray,rotationFrequency){
-  let rotatedArray = [];
-  for(let index=0; index<givenArray.length; index++){
-    indexOfGivenArray = (index+rotationFrequency)%(givenArray.length);
-    rotatedArray[index] = givenArray[indexOfGivenArray]; 
+const counter = function(start){
+  return function(){
+    return start++;
   }
-  return rotatedArray;
+}
+
+const rotateArray = function(givenArray,rotationFrequency){
+  let rotationIndex = rotationFrequency%givenArray.length;
+  let result = givenArray.slice(rotationIndex,givenArray.length);
+  return result.concat(givenArray.slice(0,rotationIndex));
 }
 
 const isGreater = function(num1,num2){
