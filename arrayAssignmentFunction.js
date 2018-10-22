@@ -8,13 +8,12 @@ const isOdd = function(number){
   return Math.abs(number%2)==1;
 }
 
-const isEven = function(number){
-  return Math.abs(number%2)==0;
-}
+const isEven=createCompliment(isOdd);
 
 const add = function(num1,num2){
   return num1+num2;
 }
+
 const findOddNumbers = function (givenArray){
   return givenArray.filter(isOdd);
 }
@@ -27,7 +26,7 @@ const calculateSum = function (givenArray){
   return givenArray.reduce(add);
 }
 
-const swapeElementsInReverse = function(givenArray){
+const swapElementsInReverse = function(givenArray){
   swapingLength=(givenArray.length)/2;
   for(let index=0; index<swapingLength; index++){
     valueToSwap = givenArray[index];
@@ -38,7 +37,7 @@ const swapeElementsInReverse = function(givenArray){
 }
 
 const reverseOriginalArray = function (givenArray){
-  return swapeElementsInReverse(givenArray);
+  return swapElementsInReverse(givenArray);
 }
 
 const isIndexEven = function(element,index){
@@ -114,14 +113,13 @@ const countNumbersBelowThreshold = function(givenArray,threshold){
   return givenArray.filter(upperBoundary).length; 
 }
 
+const unshiftElement = function(array,element){
+  (array).unshift(element);
+  return array;
+}
+
 const reverseArray = function(givenArray){
-  let lastIndex = (givenArray.length)-1;
-  let reversedArray = [];
-  for(let reversedIndex=lastIndex; reversedIndex>=0; reversedIndex--){
-    let index = givenArray.length-reversedIndex-1; 
-    reversedArray[reversedIndex] = givenArray[index];
-  }
-  return reversedArray;
+  return givenArray.reduce(unshiftElement,[]);
 }
 
 const findIndexOfNumber = function(givenArray,number){
@@ -244,7 +242,7 @@ const rotateArray = function(givenArray,rotationFrequency){
 }
 
 const isGreater = function(num1,num2){
-  return (num1-num2)>0;
+  return num1 > num2;
 }
 
 const isLower = function(num1,num2){

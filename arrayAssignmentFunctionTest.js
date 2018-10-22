@@ -4,7 +4,6 @@ const lib = require("./arrayAssignmentFunction.js");
 const {findEvenNumbers} = lib; 
 //--------test for finding Even Numbers from array----------//
 assert.deepEqual(findEvenNumbers([]),[]);
-assert.deepEqual(findEvenNumbers(["a"]),[]);
 assert.deepEqual(findEvenNumbers([2,4]),[2,4]);
 assert.deepEqual(findEvenNumbers([1,2,3,4,5,6]),[2,4,6]);
 assert.deepEqual(findEvenNumbers([-1,2,3,-4,-5,6]),[2,-4,6]);
@@ -173,4 +172,4 @@ assert.deepEqual(partitionArrays([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
 assert.deepEqual(partitionArrays([],4)[[],[]]);
 
 
-console.log("-------------All test are passed-----------------");
+console.log("-------------All tests are passed-----------------");
