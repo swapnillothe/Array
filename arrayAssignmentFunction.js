@@ -26,18 +26,8 @@ const calculateSum = function (givenArray){
   return givenArray.reduce(add);
 }
 
-const swapElementsInReverse = function(givenArray){
-  swapingLength=(givenArray.length)/2;
-  for(let index=0; index<swapingLength; index++){
-    valueToSwap = givenArray[index];
-    givenArray[index]=givenArray[givenArray.length-1-index]; 
-    givenArray[givenArray.length-index-1]=valueToSwap;
-  }
-  return givenArray;
-}
-
 const reverseOriginalArray = function (givenArray){
-  return swapElementsInReverse(givenArray);
+  return givenArray.reverse();
 }
 
 const isIndexEven = function(element,index){
@@ -153,14 +143,12 @@ const isDescending = function(givenArray){
   return isDescending;
 }
 
+const convertIntoNumber = function(string){
+  return +string;
+}
+
 const extractDigitsFromNumber = function(givenNumber){
-  let requiredArray = []; // have to change the variable name
-  stringOfGivenNumber = ""+givenNumber; 
-  noOfDigits = (""+givenNumber).length;
-  for(let index=0; index<noOfDigits; index++){
-    requiredArray[requiredArray.length] = stringOfGivenNumber[index];
-  }
-  return requiredArray;
+  return (""+givenNumber).split("").map(convertIntoNumber);
 }
 
 const isPresent = function(array,element){
@@ -207,20 +195,21 @@ const findDifference = function(array1,array2){
   let differentElementsArray = [];
   for(let index=0; index<array1.length; index++){
     if(!(array2.includes(array1[index]))){
-      differentElementsArray[differentElementsArray.length]=array1[index];//too long bad variable name 
+      differentElementsArray[differentElementsArray.length]=array1[index];
     }
   }
   return differentElementsArray;
 }
 
-const isSubset= function(array1,array2){ 
-  let isSubset= true;
-  for(let index=0; index<array2.length; index++){
-    if(!(array1.includes(array2[index]))){
-      isSubset= false;
-    }
+const isInclude = function (array){
+  return function(element){
+    return array.includes(element)
   }
-  return isSubset;
+}
+
+const isSubset= function(array1,array2){ 
+  let isIncludes = isInclude(array1);
+  return !(array2.map(isIncludes).includes(false));
 }
 
 const zipArrays = function(array1,array2){
