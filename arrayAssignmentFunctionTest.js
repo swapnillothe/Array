@@ -23,12 +23,12 @@ assert.deepEqual(calculateSum([1,2,3]),6);
 assert.deepEqual(calculateSum([1,3]),4);
 assert.deepEqual(calculateSum([1,2,3,4,5,6,7]),28);
 
-const {reverseOriginalArray} = lib;
+const {reverseDataSet} = lib;
 //--------test for reversing array------------------------//
-assert.deepEqual(reverseOriginalArray([1,2]),[2,1]);
-assert.deepEqual(reverseOriginalArray([]),[]);
-assert.deepEqual(reverseOriginalArray([1,2,3]),[3,2,1]);
-assert.deepEqual(reverseOriginalArray([1,2,3]),[3,2,1]);
+assert.deepEqual(reverseDataSet([1,2]),[2,1]);
+assert.deepEqual(reverseDataSet([]),[]);
+assert.deepEqual(reverseDataSet([1,2,3]),[3,2,1]);
+assert.deepEqual(reverseDataSet([1,2,3]),[3,2,1]);
 
 const {extractEverySecondElement} = lib;
 //--test for array of every second elements from given array --//

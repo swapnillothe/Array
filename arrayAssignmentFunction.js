@@ -1,8 +1,22 @@
-const createCompliment = function(func){
+const createCompliment = function(functionRefference){
   return function(argv){
-    return !func(argv);
+    return !functionRefference(argv);
   }
 }
+
+const counter = function(start){
+  return function(){
+    return start++;
+  }
+}
+
+
+const isInclude = function (array){
+  return function(element){
+    return array.includes(element)
+  }
+}
+
 
 const isOdd = function(number){
   return Math.abs(number%2)==1;
@@ -10,97 +24,97 @@ const isOdd = function(number){
 
 const isEven=createCompliment(isOdd);
 
-const add = function(num1,num2){
-  return num1+num2;
+const add = function(firstNumber,secondNumber){
+  return firstNumber+secondNumber;
 }
 
-const findOddNumbers = function (givenArray){
-  return givenArray.filter(isOdd);
+const findOddNumbers = function (dataSet){
+  return dataSet.filter(isOdd);
 }
 
-const findEvenNumbers = function (givenArray){
-  return givenArray.filter(isEven);
+const findEvenNumbers = function (dataSet){
+  return dataSet.filter(isEven);
 }
 
-const calculateSum = function (givenArray){
-  return givenArray.reduce(add);
+const calculateSum = function (dataSet){
+  return dataSet.reduce(add);
 }
 
-const reverseOriginalArray = function (givenArray){
-  return givenArray.reverse();
+const reverseDataSet = function (dataSet){
+  return dataSet.reverse();
 }
 
 const isIndexEven = function(element,index){
   return isEven(index);
 }
 
-const extractEverySecondElement = function (givenArray){
-  return givenArray.filter(isIndexEven); 
+const extractEverySecondElement = function (dataSet){
+  return dataSet.filter(isIndexEven); 
 }
 
-const findGreaterNumber = function(num1,num2){
-  if(num1>num2){
-    return num1;
+const findGreaterNumber = function(firstNumber,secondNumber){
+  switch(firstNumber>secondNumber){
+    case true : return firstNumber;
+    case false : return secondNumber;
   }
-  return num2;
 }
 
-const findLowerNumber = function(num1,num2){
-  if(num1>num2){
-    return num2;
+const findLowerNumber = function(firstNumber,secondNumber){
+  switch(firstNumber>secondNumber){
+    case true : return secondNumber;
+    case false : return firstNumber;
   }
-  return num1;
 }
 
 
-const findGreatestNumber = function(givenArray){
-  return givenArray.reduce(findGreaterNumber);
+const findGreatestNumber = function(dataSet){
+  return dataSet.reduce(findGreaterNumber);
 }
 
-const findLowestNumber = function(givenArray){
-  return givenArray.reduce(findLowerNumber);
+const findLowestNumber = function(dataSet){
+  return dataSet.reduce(findLowerNumber);
 }
 
-const calculateAverageOfNumbers = function(givenArray){
-  return (calculateSum(givenArray))/givenArray.length;
+const calculateAverageOfNumbers = function(dataSet){
+  return (calculateSum(dataSet))/dataSet.length;
 }
 
 const mapLengthOfText = function(text){
   return text.length;
 }
 
-const mapLengthOfElements = function(givenArray){
-  return givenArray.map(mapLengthOfText);
+const mapLengthOfElements = function(dataSet){
+  return dataSet.map(mapLengthOfText);
 }
 
-const countOddNumbers = function(givenArray){
-  return findOddNumbers(givenArray).length;
+const countOddNumbers = function(dataSet){
+  return findOddNumbers(dataSet).length;
 }
 
-const countEvenNumbers = function(givenArray){
-  return findEvenNumbers(givenArray).length;
+const countEvenNumbers = function(dataSet){
+  return findEvenNumbers(dataSet).length;
 }
 
 const isAbove = function(threshold){
-  return function(element){
-    return isGreater(element,threshold)
+  return compare = function(element){
+    return isGreater(element,threshold);
   }
 }
 
 const isBelow = function(threshold){
-  return function(element){
-    return isLower(element,threshold)
+  return compare = function(element){
+    return isLower(element,threshold);
   }
 }
  
-const countNumbersAboveThreshold = function(givenArray,threshold){
+const countNumbersAboveThreshold = function(dataSet,threshold){
   const belowBoundary = isAbove(threshold); 
-  return givenArray.filter(belowBoundary).length;
+  return dataSet.filter(belowBoundary).length;
 }
 
-const countNumbersBelowThreshold = function(givenArray,threshold){
+const countNumbersBelowThreshold = function(dataSet,threshold){
   const upperBoundary = isBelow(threshold);
-  return givenArray.filter(upperBoundary).length; 
+  return dataSet.filter(upperBoundary).length; 
 }
 
 const unshiftElement = function(array,element){
@@ -108,35 +122,40 @@ const unshiftElement = function(array,element){
   return array;
 }
 
-const reverseArray = function(givenArray){
-  return givenArray.reduce(unshiftElement,[]);
+const reverseArray = function(dataSet){
+  return dataSet.reduce(unshiftElement,[]);
 }
 
-const findIndexOfNumber = function(givenArray,number){
-  indexOfGivenNumber = -1;
-  for(let index=0; index<givenArray.length; index++){
-    if(givenArray[index]==number){
-      indexOfGivenNumber = index;
-      return indexOfGivenNumber;
+const hasMatch = function(numberToMatch){
+  const count = counter(0);
+  return findIndex = function(object,element){
+    let index = count();
+    switch((object.numberIndex==-1)&&element==numberToMatch){
+      case true : object.numberIndex = index;
     }
+    return object;
   }
-  return indexOfGivenNumber;
 }
 
-const isAscending = function(givenArray){
+const findIndexOfNumber = function(dataSet,number){
+  const hasMatched = hasMatch(number); 
+  return dataSet.reduce(hasMatched,{numberIndex:-1}).numberIndex;
+}
+
+const isAscending = function(dataSet){
   let isAscending = true;
-  for(let index=0; index<(givenArray.length)-1; index++){
-    if(givenArray[index]>givenArray[index+1]){
+  for(let index=0; index<(dataSet.length)-1; index++){
+    if(dataSet[index]>dataSet[index+1]){
       isAscending = false;
     }
   }
   return isAscending;
 }
 
-const isDescending = function(givenArray){
+const isDescending = function(dataSet){
   let isDescending = true;
-  for(let index=0; index<(givenArray.length)-1; index++){
-    if(givenArray[index]<givenArray[index+1]){
+  for(let index=0; index<(dataSet.length)-1; index++){
+    if(dataSet[index]<dataSet[index+1]){
       isDescending = false;
     }
   }
@@ -163,8 +182,8 @@ const fillOnlyUnique = function(array,element){
   return array;
 }
 
-const findUnique = function(givenArray){ 
-  return givenArray.reduce(fillOnlyUnique,[]);
+const findUnique = function(dataSet){ 
+  return dataSet.reduce(fillOnlyUnique,[]);
 }
 
 const findUnion = function(array1,array2){
@@ -201,12 +220,6 @@ const findDifference = function(array1,array2){
   return differentElementsArray;
 }
 
-const isInclude = function (array){
-  return function(element){
-    return array.includes(element)
-  }
-}
-
 const isSubset= function(array1,array2){ 
   let isIncludes = isInclude(array1);
   return !(array2.map(isIncludes).includes(false));
@@ -221,24 +234,18 @@ const zipArrays = function(array1,array2){
   return zippedArray;
 }
 
-const counter = function(start){
-  return function(){
-    return start++;
-  }
+const rotateArray = function(dataSet,rotationFrequency){
+  let rotationIndex = rotationFrequency%dataSet.length;
+  let result = dataSet.slice(rotationIndex,dataSet.length);
+  return result.concat(dataSet.slice(0,rotationIndex));
 }
 
-const rotateArray = function(givenArray,rotationFrequency){
-  let rotationIndex = rotationFrequency%givenArray.length;
-  let result = givenArray.slice(rotationIndex,givenArray.length);
-  return result.concat(givenArray.slice(0,rotationIndex));
+const isGreater = function(firstNumber,secondNumber){
+  return firstNumber > secondNumber;
 }
 
-const isGreater = function(num1,num2){
-  return num1 > num2;
-}
-
-const isLower = function(num1,num2){
-  return num1 < num2;
+const isLower = function(firstNumber,secondNumber){
+  return firstNumber < secondNumber;
 }
 
 const partition = function(object,element,pivot){
@@ -254,16 +261,16 @@ const partitionGenerater = function (pivot){
   }
 }
 
-const partitionArrays = function(givenArray,pivot){
+const partitionArrays = function(dataSet,pivot){
   const partitate = partitionGenerater(pivot);
-  let result = givenArray.reduce(partitate,{true:[],false:[]});
+  let result = dataSet.reduce(partitate,{true:[],false:[]});
   return [result.false,result.true]
 }
 
 exports.findOddNumbers = findOddNumbers;
 exports.findEvenNumbers = findEvenNumbers;
 exports.calculateSum = calculateSum;
-exports.reverseOriginalArray = reverseOriginalArray;
+exports.reverseDataSet = reverseDataSet;
 exports.extractEverySecondElement = extractEverySecondElement;
 exports.findGreatestNumber = findGreatestNumber;
 exports.findLowestNumber = findLowestNumber;
