@@ -10,13 +10,11 @@ const counter = function(start){
   }
 }
 
-
 const isInclude = function (array){
   return function(element){
     return array.includes(element)
   }
 }
-
 
 const isOdd = function(number){
   return Math.abs(number%2)==1;
@@ -53,19 +51,12 @@ const extractEverySecondElement = function (dataSet){
 }
 
 const findGreaterNumber = function(firstNumber,secondNumber){
-  switch(firstNumber>secondNumber){
-    case true : return firstNumber;
-    case false : return secondNumber;
-  }
+  return Math.max(firstNumber,secondNumber);
 }
 
 const findLowerNumber = function(firstNumber,secondNumber){
-  switch(firstNumber>secondNumber){
-    case true : return secondNumber;
-    case false : return firstNumber;
-  }
+  return Math.min(firstNumber,secondNumber);
 }
-
 
 const findGreatestNumber = function(dataSet){
   return dataSet.reduce(findGreaterNumber);
@@ -145,8 +136,8 @@ const findIndexOfNumber = function(dataSet,number){
 const isAscending = function(dataSet){
   let isAscending = true;
   for(let index=0; index<(dataSet.length)-1; index++){
-    if(dataSet[index]>dataSet[index+1]){
-      isAscending = false;
+    switch(dataSet[index]>dataSet[index+1]){
+      case true : isAscending = false;
     }
   }
   return isAscending;
@@ -155,8 +146,8 @@ const isAscending = function(dataSet){
 const isDescending = function(dataSet){
   let isDescending = true;
   for(let index=0; index<(dataSet.length)-1; index++){
-    if(dataSet[index]<dataSet[index+1]){
-      isDescending = false;
+    switch(dataSet[index]<dataSet[index+1]){
+      case true :  isDescending = false;
     }
   }
   return isDescending;
@@ -175,8 +166,8 @@ const isPresent = function(array,element){
 }
 
 const fillOnlyUnique = function(array,element){
-  if(isPresent(array,element)){
-    return array;
+  switch(isPresent(array,element)){
+    case true : return array;
   }
   (array).push(element);
   return array;
@@ -192,8 +183,8 @@ const findUnion = function(array1,array2){
 }
 
 const intersectionMainFunc = function(intialValue,element,array2,array1){
-  if((array2).includes(element)&&(array1).includes(element)){
-    (intialValue).push(element);
+  switch((array2).includes(element)&&(array1).includes(element)){
+    case true : (intialValue).push(element);
     return intialValue;
   }
   return intialValue;
@@ -213,8 +204,8 @@ const findIntersection = function(array1,array2){
 const findDifference = function(array1,array2){ 
   let differentElementsArray = [];
   for(let index=0; index<array1.length; index++){
-    if(!(array2.includes(array1[index]))){
-      differentElementsArray[differentElementsArray.length]=array1[index];
+    switch(array2.includes(array1[index])){
+      case false : differentElementsArray[differentElementsArray.length]=array1[index];
     }
   }
   return differentElementsArray;
