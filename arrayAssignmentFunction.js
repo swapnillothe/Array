@@ -46,7 +46,7 @@ const isIndexEven = function(element,index){
   return isEven(index);
 }
 
-const extractEverySecondElement = function (dataSet){
+const extractEverySecondElement = function(dataSet){
   return dataSet.filter(isIndexEven); 
 }
 
@@ -67,7 +67,7 @@ const findLowestNumber = function(dataSet){
 }
 
 const calculateAverageOfNumbers = function(dataSet){
-  return (calculateSum(dataSet))/dataSet.length;
+  return calculateSum(dataSet)/dataSet.length;
 }
 
 const mapLengthOfText = function(text){
@@ -109,7 +109,7 @@ const countNumbersBelowThreshold = function(dataSet,threshold){
 }
 
 const unshiftElement = function(array,element){
-  (array).unshift(element);
+  array.unshift(element);
   return array;
 }
 
@@ -117,20 +117,11 @@ const reverseArray = function(dataSet){
   return dataSet.reduce(unshiftElement,[]);
 }
 
-const hasMatch = function(numberToMatch){
-  const count = counter(0);
-  return findIndex = function(object,element){
-    let index = count();
-    switch((object.numberIndex==-1)&&element==numberToMatch){
-      case true : object.numberIndex = index;
-    }
-    return object;
-  }
-}
-
 const findIndexOfNumber = function(dataSet,number){
-  const hasMatched = hasMatch(number); 
-  return dataSet.reduce(hasMatched,{numberIndex:-1}).numberIndex;
+  const hasMatch = function(element){
+  return element==number;
+}
+  return dataSet.findIndex(hasMatch);
 }
 
 const isAscending = function(dataSet){
