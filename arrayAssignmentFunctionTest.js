@@ -151,12 +151,12 @@ assert.deepEqual(isSubset([1,-4,-3,6],[3,1]),false);
 assert.deepEqual(isSubset([1,2],[3]),false);
 assert.deepEqual(isSubset([1,2,3],[]),true);
 
-const {zipArrays} = lib;
+const {zipDataSets} = lib;
 //-------test for zipping two arrays in new array is added----------//
-assert.deepEqual(zipArrays([1,2,3],[0,4,5]),[[1,0],[2,4],[3,5]]);
-assert.deepEqual(zipArrays([1,2],[0]),[[1,0]]);
-assert.deepEqual(zipArrays([1],[0,2]),[[1,0]]);
-assert.deepEqual(zipArrays(["a"],["b","c"]),[["a","b"]]);
+assert.deepEqual(zipDataSets([1,2,3],[0,4,5]),[[1,0],[2,4],[3,5]]);
+assert.deepEqual(zipDataSets([1,2],[0]),[[1,0]]);
+assert.deepEqual(zipDataSets([1],[0,2]),[[1,0]]);
+assert.deepEqual(zipDataSets(["a"],["b","c"]),[["a","b"]]);
 
 const {rotateArray} = lib; 
 //-------test for creating new array of rotated array---------//
@@ -166,10 +166,10 @@ assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
 assert.deepEqual(rotateArray([1,2,3,4,5],6),[2,3,4,5,1]);
 assert.deepEqual(rotateArray([1,2,3,4,5],0),[1,2,3,4,5]);
 
-const {partitionArrays} = lib;
+const {partitionDataSets} = lib;
 //------test for partition the arrays in two arrays---------//
-assert.deepEqual(partitionArrays([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
-assert.deepEqual(partitionArrays([],4)[[],[]]);
+assert.deepEqual(partitionDataSets([1,2,3,4,5,6,7,8],4),[[1,2,3,4],[5,6,7,8]]);
+assert.deepEqual(partitionDataSets([],4)[[],[]]);
 
 
 console.log("-------------All tests are passed-----------------");

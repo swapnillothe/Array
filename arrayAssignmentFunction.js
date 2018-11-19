@@ -10,9 +10,9 @@ const counter = function(start){
   }
 }
 
-const isInclude = function (array){
+const isInclude = function (dataSet){
   return function(element){
-    return array.includes(element)
+    return dataSet.includes(element)
   }
 }
 
@@ -108,9 +108,9 @@ const countNumbersBelowThreshold = function(dataSet,threshold){
   return dataSet.filter(upperBoundary).length; 
 }
 
-const unshiftElement = function(array,element){
-  array.unshift(element);
-  return array;
+const unshiftElement = function(dataSet,element){
+  dataSet.unshift(element);
+  return dataSet;
 }
 
 const reverseArray = function(dataSet){
@@ -120,7 +120,7 @@ const reverseArray = function(dataSet){
 const findIndexOfNumber = function(dataSet,number){
   const hasMatch = function(element){
   return element==number;
-}
+  }
   return dataSet.findIndex(hasMatch);
 }
 
@@ -152,68 +152,68 @@ const extractDigitsFromNumber = function(givenNumber){
   return (""+givenNumber).split("").map(convertIntoNumber);
 }
 
-const isPresent = function(array,element){
-  return (array).includes(element);
+const isPresent = function(dataSet,element){
+  return (dataSet).includes(element);
 }
 
-const fillOnlyUnique = function(array,element){
-  switch(isPresent(array,element)){
-    case true : return array;
+const fillOnlyUnique = function(dataSet,element){
+  switch(isPresent(dataSet,element)){
+    case true : return dataSet;
   }
-  (array).push(element);
-  return array;
+  (dataSet).push(element);
+  return dataSet;
 }
 
 const findUnique = function(dataSet){ 
   return dataSet.reduce(fillOnlyUnique,[]);
 }
 
-const findUnion = function(array1,array2){
-  let unionArray = array1.concat(array2);
+const findUnion = function(dataSet1,dataSet2){
+  let unionArray = dataSet1.concat(dataSet2);
   return findUnique(unionArray);
 }
 
-const intersectionMainFunc = function(intialValue,element,array2,array1){
-  switch((array2).includes(element)&&(array1).includes(element)){
+const intersectionMainFunc = function(intialValue,element,dataSet2,dataSet1){
+  switch((dataSet2).includes(element)&&(dataSet1).includes(element)){
     case true : (intialValue).push(element);
     return intialValue;
   }
   return intialValue;
 }
 
-const intersectionFuncCreater = function(array2,array1){
+const intersectionFuncCreater = function(dataSet2,dataSet1){
   return function(intValue,element){
-    return intersectionMainFunc(intValue,element,array2,array1);
+    return intersectionMainFunc(intValue,element,dataSet2,dataSet1);
   }
 }
 
-const findIntersection = function(array1,array2){ 
-  const fillOnlyIntersected = intersectionFuncCreater(array2,array1);
-  return array1.reduce(fillOnlyIntersected,[]);
+const findIntersection = function(dataSet1,dataSet2){ 
+  const fillOnlyIntersected = intersectionFuncCreater(dataSet2,dataSet1);
+  return dataSet1.reduce(fillOnlyIntersected,[]);
 }
 
-const findDifference = function(array1,array2){ 
+const findDifference = function(dataSet1,dataSet2){ 
   let differentElementsArray = [];
-  for(let index=0; index<array1.length; index++){
-    switch(array2.includes(array1[index])){
-      case false : differentElementsArray[differentElementsArray.length]=array1[index];
+  for(let index=0; index<dataSet1.length; index++){
+    switch(dataSet2.includes(dataSet1[index])){
+      case false : differentElementsArray[differentElementsArray.length]=dataSet1[index];
     }
   }
   return differentElementsArray;
 }
 
-const isSubset= function(array1,array2){ 
-  let isIncludes = isInclude(array1);
-  return !(array2.map(isIncludes).includes(false));
+const isSubset= function(dataSet1,dataSet2){ 
+  let isIncludes = isInclude(dataSet1);
+  return !(dataSet2.map(isIncludes).includes(false));
 }
 
-const zipArrays = function(array1,array2){
-  zipLength = findLowestNumber([array1.length,array2.length]);
-  let zippedArray = new Array(zipLength);
+const zipDataSets = function(dataSet1,dataSet2){
+  zipLength = findLowestNumber([dataSet1.length,dataSet2.length]);
+  let zippedDataSet = new Array(zipLength);
   for(let index=0; index<zipLength; index++){
-    zippedArray[index] = [array1[index],array2[index]];    
+    zippedDataSet[index] = [dataSet1[index],dataSet2[index]];    
   }
-  return zippedArray;
+  return zippedDataSet;
 }
 
 const rotateArray = function(dataSet,rotationFrequency){
@@ -243,7 +243,7 @@ const partitionGenerater = function (pivot){
   }
 }
 
-const partitionArrays = function(dataSet,pivot){
+const partitionDataSets = function(dataSet,pivot){
   const partitate = partitionGenerater(pivot);
   let result = dataSet.reduce(partitate,{true:[],false:[]});
   return [result.false,result.true]
@@ -272,6 +272,6 @@ exports.findUnion = findUnion;
 exports.findIntersection = findIntersection;
 exports.findDifference = findDifference;
 exports.isSubset= isSubset;
-exports.zipArrays = zipArrays;
+exports.zipDataSets = zipDataSets;
 exports.rotateArray = rotateArray;
-exports.partitionArrays = partitionArrays;
+exports.partitionDataSets = partitionDataSets;
