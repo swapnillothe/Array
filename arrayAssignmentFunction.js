@@ -208,7 +208,7 @@ const isSubset= function(dataSet1,dataSet2){
 }
 
 const zipDataSets = function(dataSet1,dataSet2){
-  zipLength = findLowestNumber([dataSet1.length,dataSet2.length]);
+  zipLength = Math.min(dataSet1.length,dataSet2.length);
   let zippedDataSet = new Array(zipLength);
   for(let index=0; index<zipLength; index++){
     zippedDataSet[index] = [dataSet1[index],dataSet2[index]];    
